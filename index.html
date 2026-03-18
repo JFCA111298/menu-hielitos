@@ -5,47 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú de Hielitos y Bolis - Doña Lety</title>
     <style>
-        /* Estilos base mejorados para legibilidad y diseño responsive */
         body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; background: #e0f2fe; color: #333; margin: 0; padding: 10px; }
         
-        h1 { color: #0284c7; background: white; padding: 15px; border-radius: 50px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 10px; }
+        h1 { color: #0284c7; background: white; padding: 15px 30px; border-radius: 50px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 10px; }
         
-        /* Contenedor principal para organizar las secciones */
         .container { display: flex; flex-direction: column; align-items: center; max-width: 600px; margin: auto; }
         
-        /* Sección Conmemorativa (Texto arriba) */
-        .conmemorativa { background: #f0f9ff; border: 1px solid #cceeff; border-radius: 15px; padding: 15px; margin: 15px 0; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .fundadora-texto { font-size: 1em; line-height: 1.5; color: #0369a1; text-align: center; margin: 0; }
+        .conmemorativa { background: #f0f9ff; border: 1px solid #cceeff; border-radius: 15px; padding: 15px; margin: 15px 0; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.02); box-sizing: border-box; }
+        .fundadora-texto { font-size: 1em; line-height: 1.5; color: #0369a1; text-align: center; margin: 0; font-style: italic; border: none; }
         
-        .card { background: white; border-radius: 20px; padding: 20px; margin: 15px 0; width: 100%; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .card { background: white; border-radius: 20px; padding: 20px; margin: 15px 0; width: 100%; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); box-sizing: border-box; }
         
-        .seccion { margin-top: 10px; border-bottom: 3px solid #007bff; display: inline-block; padding: 0 15px 5px; color: #0369a1; font-weight: bold; width: 100%; text-align: center;}
+        .seccion { margin-top: 10px; border-bottom: 3px solid #0284c7; display: block; padding-bottom: 10px; color: #0369a1; font-weight: bold; margin-bottom: 15px; }
         
-        /* Precios resaltados */
         .precio { font-weight: bold; color: #059669; background: #ecfdf5; padding: 2px 8px; border-radius: 8px; float: right; }
         
         p { text-align: left; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin: 10px 0; width: 100%; }
 
-        .badge { background: #ffcc00; padding: 5px 10px; border-radius: 50px; font-size: 0.7em; font-weight: bold; color: black; }
+        .badge { background: #ffcc00; padding: 5px 10px; border-radius: 50px; font-size: 0.7em; font-weight: bold; color: black; vertical-align: middle; }
         
         .proximamente { color: #64748b; font-style: italic; font-size: 0.95em; }
 
-        /* ESTILO PARA PRODUCTO AGOTADO */
-        .agotado { color: #94a3b8; text-decoration: line-through; position: relative; }
-        .agotado .precio { background: #f1f5f9; color: #94a3b8; text-decoration: line-through; }
-        .agotado::after { content: " (AGOTADO POR HOY)"; color: #ef4444; font-size: 0.8em; font-weight: bold; text-decoration: none; margin-left: 5px; }
+        .btn-pedidos { background: #25d366; color: white; text-decoration: none; padding: 15px 20px; border-radius: 50px; display: inline-block; margin-top: 20px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .btn-pedidos:hover { transform: scale(1.05); }
 
-        /* BOTÓN DE WHATSAPP */
-        .btn-pedidos { background: #25d366; color: white; text-decoration: none; padding: 15px 20px; border-radius: 50px; display: inline-block; margin: 10px 0; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .ubicacion-container { background: #0284c7; color: white; padding: 20px; width: 100%; margin: 20px 0; border-radius: 25px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); box-sizing: border-box; }
+        .direccion-principal { font-size: 1.2em; font-weight: bold; display: block; margin-bottom: 10px; }
+        .referencia { font-size: 0.95em; opacity: 0.95; display: block; line-height: 1.6; }
 
-        /* SECCIÓN DE UBICACIÓN RESALTADA */
-        .ubicacion-container { background: #0284c7; color: white; padding: 20px; width: 100%; margin: 20px 0; border-radius: 25px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; }
-        .direccion-principal { font-size: 1.2em; font-weight: bold; display: block; margin-bottom: 5px; text-align: center; }
-        .referencia { font-size: 0.9em; opacity: 0.9; display: block; line-height: 1.4; text-align: center; border: none; padding: 0;}
-
-        /* SECCIÓN DE FOTO (Rectangular al final) */
-        .fundadora-foto-container { width: 100%; margin: 20px 0; display: flex; justify-content: center; }
-        .fundadora-foto { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); object-fit: cover; }
+        .foto-container { width: 100%; margin: 20px 0; }
+        .fundadora-foto { max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -53,16 +42,16 @@
         <h1>🍦 Hielitos Doña Lety 🍦</h1>
         
         <div class="conmemorativa">
-            <p class="fundadora-texto">
-                <i>"Inaugurado con amor en 1996, continuando el legado de sabor tradicional."</i>
-            </p>
+            <div class="fundadora-texto">
+                "Inaugurado con amor en 1996, continuando el legado de sabor tradicional."
+            </div>
         </div>
 
         <div class="card">
             <h3 class="seccion">Disponibles Ahora</h3>
-            <p class="disponible">🍇 Uva <span class="precio">$12</span></p>
-            <p class="disponible">🍓 Fresa <span class="precio">$12</span></p>
-            <p class="disponible">🥭 Mango <span class="precio">$12</span></p>
+            <p>🍇 Uva <span class="precio">$12</span></p>
+            <p>🍓 Fresa <span class="precio">$12</span></p>
+            <p>🥭 Mango <span class="precio">$12</span></p>
 
             <a href="https://wa.me/526647801914" class="btn-pedidos">
                 📲 Pedidos: 664 780 1914
@@ -82,13 +71,16 @@
             <span class="direccion-principal">Calle Versalles #2</span>
             <span class="referencia">
                 Col. Internacional <br>
-                (Frente a kinder Abraham Lincoln, casa de Doña Lety) <br>
-                <b>Tel: 664 780 1914</b>
-                <br>servicio a domicilio mayor de 50 pesos de 1:00 pm a 6:00 pm<br>
+                (Frente a kinder Abraham Lincoln, casa de Doña Lety) <br><br>
+                <b>Tel: 664 780 1914</b><br>
+                <span style="display:block; margin-top:10px; background: rgba(255,255,255,0.2); padding: 5px; border-radius: 10px;">
+                    🚚 Servicio a domicilio en compras mayores a $50 <br>
+                    (1:00 pm a 6:00 pm)
+                </span>
             </span>
         </div>
 
-        <div class="fundadora.jpg">
+        <div class="foto-container">
             <img src="fundadora.jpg" alt="Doña Lety - Fundadora" class="fundadora-foto">
         </div>
     </div>
